@@ -96,14 +96,6 @@ fn main(in: FragmentInput) -> @location(0) vec4f
 
     let cluster_len = cluster_data[cluster_array_index];
 
-    // if abs(linear_depth_to_screen_depth(depth, near_plane, max_depth) - in.frag_pos.z) < 0.01f {
-    //     return vec4(0.0, 1.0, 0.0, 1.0);
-    // }
-    // else {
-    //     // return vec4(1.0, 0.0, 0.0, 1.0);
-    //     return vec4(1.0, 0.0, 0.0, 1.0);
-    // }
-
     let diffuseColor = textureSample(diffuseTex, diffuseTexSampler, in.uv);
     if (diffuseColor.a < 0.5f) {
         discard;
