@@ -1,20 +1,19 @@
 // CHECKITOUT: this file loads all the shaders and preprocesses them with some common code
 
-import { Camera } from '../stage/camera';
 
 import commonRaw from './common.wgsl?raw';
 
-import naiveVertRaw from './naive.vs.wgsl?raw';
 import naiveFragRaw from './naive.fs.wgsl?raw';
+import naiveVertRaw from './naive.vs.wgsl?raw';
 
 import forwardPlusFragRaw from './forward_plus.fs.wgsl?raw';
 
 import clusteredDeferredFragRaw from './clustered_deferred.fs.wgsl?raw';
-import clusteredDeferredFullscreenVertRaw from './clustered_deferred_fullscreen.vs.wgsl?raw';
 import clusteredDeferredFullscreenFragRaw from './clustered_deferred_fullscreen.fs.wgsl?raw';
+import clusteredDeferredFullscreenVertRaw from './clustered_deferred_fullscreen.vs.wgsl?raw';
 
-import moveLightsComputeRaw from './move_lights.cs.wgsl?raw';
 import clusteringComputeRaw from './clustering.cs.wgsl?raw';
+import moveLightsComputeRaw from './move_lights.cs.wgsl?raw';
 
 // CONSTANTS (for use in shaders)
 // =================================
@@ -30,7 +29,20 @@ export const constants = {
 
     moveLightsWorkgroupSize: 128,
 
-    lightRadius: 2
+    lightRadius: 2,
+
+    // clustering constants
+    num_clusters_x: 16,
+    num_clusters_y: 16,
+    num_clusters_z: 40,
+
+    max_cluster_depth: 20,
+
+    maxClusterLights: 300,
+
+    cluster_workgroup_size_x: 4,
+    cluster_workgroup_size_y: 4,
+    cluster_workgroup_size_z: 4
 };
 
 // =================================

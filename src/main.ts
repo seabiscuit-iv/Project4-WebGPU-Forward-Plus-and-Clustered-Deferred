@@ -1,14 +1,14 @@
-import Stats from 'stats.js';
 import { GUI } from 'dat.gui';
+import Stats from 'stats.js';
 
 import { initWebGPU, Renderer } from './renderer';
-import { NaiveRenderer } from './renderers/naive';
-import { ForwardPlusRenderer } from './renderers/forward_plus';
 import { ClusteredDeferredRenderer } from './renderers/clustered_deferred';
+import { ForwardPlusRenderer } from './renderers/forward_plus';
+import { NaiveRenderer } from './renderers/naive';
 
-import { setupLoaders, Scene } from './stage/scene';
-import { Lights } from './stage/lights';
 import { Camera } from './stage/camera';
+import { Lights } from './stage/lights';
+import { Scene, setupLoaders } from './stage/scene';
 import { Stage } from './stage/stage';
 
 await initWebGPU();
@@ -50,7 +50,7 @@ function setRenderer(mode: string) {
 }
 
 const renderModes = { naive: 'naive', forwardPlus: 'forward+', clusteredDeferred: 'clustered deferred' };
-let renderModeController = gui.add({ mode: renderModes.naive }, 'mode', renderModes);
+let renderModeController = gui.add({ mode: renderModes.forwardPlus }, 'mode', renderModes);
 renderModeController.onChange(setRenderer);
 
 setRenderer(renderModeController.getValue());
