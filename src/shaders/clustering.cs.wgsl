@@ -84,7 +84,7 @@ fn get_cluster_world_space_pos(cluster: vec3u) -> vec3f {
 }
 
 @compute
-@workgroup_size(4, 4, 4)
+@workgroup_size(${cluster_workgroup_size_x}, ${cluster_workgroup_size_y}, ${cluster_workgroup_size_z})
 fn main(@builtin(global_invocation_id) globalIdx: vec3u) {
     let cluster = globalIdx;
 

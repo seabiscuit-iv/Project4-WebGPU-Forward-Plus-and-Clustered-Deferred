@@ -32,17 +32,17 @@ export const constants = {
     lightRadius: 2,
 
     // clustering constants
-    num_clusters_x: 16,
+    num_clusters_x: 32,
     num_clusters_y: 16,
-    num_clusters_z: 40,
+    num_clusters_z: 16,
 
     max_cluster_depth: 20,
 
-    maxClusterLights: 300,
+    maxClusterLights: 511,
 
-    cluster_workgroup_size_x: 4,
-    cluster_workgroup_size_y: 4,
-    cluster_workgroup_size_z: 4
+    cluster_workgroup_size_x: 16,
+    cluster_workgroup_size_y: 16,
+    cluster_workgroup_size_z: 1
 };
 
 // =================================

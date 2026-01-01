@@ -277,7 +277,7 @@ export class ClusteredDeferredRenderer extends renderer.Renderer {
                     },                
                     {
                         view: this.gbuffer_uv_view,
-                        clearValue: [0, 0],
+                        clearValue: [0, 0, 0, 0],
                         loadOp: "clear",
                         storeOp: "store"
                     },
