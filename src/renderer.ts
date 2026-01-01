@@ -1,6 +1,6 @@
-import { Scene } from './stage/scene';
-import { Lights } from './stage/lights';
 import { Camera } from './stage/camera';
+import { Lights } from './stage/lights';
+import { Scene } from './stage/scene';
 import { Stage } from './stage/stage';
 
 export var canvas: HTMLCanvasElement;
@@ -35,13 +35,17 @@ export async function initWebGPU() {
         throw new Error("WebGPU not supported on this browser");
     }
 
-    const adapter = await navigator.gpu.requestAdapter();
+    const adapter = await navigator.gpu.requestAdapter({
+        powerPreference: 'high-performance'
+    });
     if (!adapter)
     {
         throw new Error("no appropriate GPUAdapter found");
     }
 
-    device = await adapter.requestDevice();
+    console.log(adapter.info);
+
+    device = await adapter.requestDevice(); 
 
     context = canvas.getContext("webgpu")!;
     canvasFormat = navigator.gpu.getPreferredCanvasFormat();
