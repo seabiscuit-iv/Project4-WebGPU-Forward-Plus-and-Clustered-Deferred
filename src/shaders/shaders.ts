@@ -34,7 +34,7 @@ export const constants = {
     // clustering constants
     num_clusters_x: 32,
     num_clusters_y: 16,
-    num_clusters_z: 16,
+    num_clusters_z: 64,
 
     max_cluster_depth: 20,
 
